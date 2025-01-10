@@ -59,7 +59,7 @@ pipeline{
 		stage("Docker Image Build"){
 			steps{
 				sciprt{
-				sh "docker build -t cloudgen01/registration-app:latest . "
+				sh "docker build -t cloudgen01/registration-app:latest ."
 				}
 				}
 				}
@@ -68,7 +68,7 @@ pipeline{
 			steps{
 			sciprt{
 			withDockerRegistry(credentialsId: 'Docker-Token', url: 'https://index.docker.io/v1/') {
-				sh" docker push cloudgen01/registration-app:latest
+				sh " docker push cloudgen01/registration-app:latest"
 						}
 					}
 				}
