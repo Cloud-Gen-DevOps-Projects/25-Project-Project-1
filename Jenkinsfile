@@ -6,7 +6,7 @@ pipeline{
 	}
 	environment{
 		SCANNER_HOME= tool "sonar-task"
-		WAR_FILE= './target/*.war'
+		WAR_FILE= '/var/lib/jenkins/workspace/Project-1/webapp/target/*.war'
 		JOB_DIR = "${env.JOB_NAME}"
 		TARGET_DIR = "/var/lib/jenkins/workspace/${JOB_NAME}"
 	}
