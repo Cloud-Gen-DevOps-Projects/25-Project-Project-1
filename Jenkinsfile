@@ -45,6 +45,11 @@ pipeline{
 			}
 		}
 		
+		stage("Copy Artifact"){
+			steps{
+				sh "sudo cp /var/lib/jenkins/workspace/Project-1/webapp/target/*.war /var/lib/jenkins/workspace/Project-1/"
+			}
+		}
 		
 		
 		
