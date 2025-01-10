@@ -14,6 +14,18 @@ pipeline{
 			}
 		}
 		
+		stage("Code Compile"){
+			steps{
+				sh "mvn compile"
+			}
+		}
+		
+		stage("Trivy FS"){
+			steps{
+				sh "trivy fs . --format table -o fs.html"
+			}
+		}
+			
 		stage("Code Analysis"){
 			steps{
 				withSonarQubeEnv('sonar-token') {
@@ -30,3 +42,5 @@ pipeline{
 		
 	}
 }
+
+				
