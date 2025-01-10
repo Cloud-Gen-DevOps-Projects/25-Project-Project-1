@@ -56,6 +56,25 @@ pipeline{
 			}
 		}
 	}
+		stage("Docker Image Build"){
+			steps{
+				sciprt{
+				sh "docker build -t cloudgen01/registration-app:latest . "
+				}
+				}
+				}
+	
+		stage("Docker image Push"){
+			steps{
+			sciprt{
+			withDockerRegistry(credentialsId: 'Docker-Token', url: 'https://index.docker.io/v1/') {
+				sh" docker push cloudgen01/registration-app:latest
+						}
+					}
+				}
+			}
+			
+	
 		
 		
 		
