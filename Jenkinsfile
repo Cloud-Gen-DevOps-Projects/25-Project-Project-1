@@ -68,7 +68,7 @@ pipeline{
 			steps{
 			sciprt{
 			withDockerRegistry(credentialsId: 'Docker-Token', url: 'https://index.docker.io/v1/') {
-				sh " docker push cloudgen01/registration-app:latest"
+				sh "docker push cloudgen01/registration-app:latest"
 						}
 					}
 				}
