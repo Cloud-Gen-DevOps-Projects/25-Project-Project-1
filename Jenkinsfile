@@ -6,6 +6,9 @@ pipeline{
 	}
 	environment{
 		SCANNER_HOME= tool "sonar-task"
+		WAR_FILE= 'target/*.war'
+		JOB_DIR = "${env.JOB_NAME}"
+		TARGET_DIR = "/var/lib/jenkins/workspace/${JOB_NAME}"
 	}
 	stages{
 		stage("Code Checkout"){
@@ -47,9 +50,12 @@ pipeline{
 		
 		stage("Copy Artifact"){
 			steps{
-				sh "sudo cp /var/lib/jenkins/workspace/Project-1/webapp/target/*.war /var/lib/jenkins/workspace/Project-1/"
+				script{
+			sh " cp ${WAR_FILE} $(TARGET_DIR}/"
+			echo "War File Copied to ${TARGET_DIR}"
 			}
 		}
+	}
 		
 		
 		
