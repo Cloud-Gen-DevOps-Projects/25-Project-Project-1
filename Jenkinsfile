@@ -51,7 +51,7 @@ pipeline{
 		stage("Copy Artifact"){
 			steps{
 				script{
-			sh "cp ${WAR_FILE} $(TARGET_DIR}/"
+			sh "cp ${WAR_FILE} $ {TARGET_DIR}/"
 			echo "War File Copied to ${TARGET_DIR}"
 			}
 		}
